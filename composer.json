@@ -1,0 +1,16 @@
+{
+    "name": "jaqueline/emerson",
+    "description": "projeto",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app//"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jaqueline V. Gomes",
+            "email": "jaqueline.mengon@fatec.sp.gov.br"
+        }
+    ],
+    "require": {}
+}
