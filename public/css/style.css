@@ -1,0 +1,312 @@
+/* Organizando a base (margem etc) */
+body, h1, h2, h3, p, a, ul, li {  /*margem */
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {  /*link sem sublinhado */ 
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* base/corpo */
+  body {
+    font-family: Arial; /* fonte do texto e cor*/
+    color: #e9eef6;
+    background: #0b0f1a; /* fundo */
+  }
+  .container { 
+    max-width: 1100px; /*largra do body */
+    margin: 0 auto;
+    padding: 0 16px; 
+  }
+  
+  /* topo da pagina */
+  .topbar {
+    background: #121828; /* faixa escura*/
+    color: #a7b0c2; /* texto*/
+    font-size: 14px;
+    border-bottom: 1px solid #253046; 
+  }
+  .topbar-wrap {
+    display: flex; /* em linha */
+    justify-content: space-between; /* lado a lado */
+    align-items: center; /*alinha vertical */
+    gap: 10px; /* espaçamento */
+    flex-wrap: wrap; /* p celular */
+    padding: 6px 0;
+  }
+  
+  /* menu */
+  .navbar {
+    background: #121828; /* barra escura */ 
+    border-bottom: 1px solid #253046;
+    position: sticky; /* fica preso to top quando sobe */ 
+    top: 0;
+    z-index: 10;
+  }
+  .navbar-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+    color: #FFD54F;
+  }
+  .brand-icon {
+    font-size: 20px;
+  }
+  .menu {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .menu a {
+    font-weight: 600;
+    opacity: 0.9;
+  }
+  .menu a:hover {
+    opacity: 1;
+    color: #FFD54F;
+  }
+  
+  /* Banner */
+  .hero-title {
+    padding: 36px 0 20px;
+    border-bottom: 1px solid #253046;
+    background: linear-gradient(180deg, #121828, #0b0f1a);
+    text-align: center;
+  }
+  .hero-title h1 {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .hero-sub {
+    color: #a7b0c2;
+  }
+  
+  /* sobre */
+  .sobre {
+    background: #121828;
+    padding: 30px 0;
+    border-bottom: 1px solid #253046;
+  }
+  .sobre-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .sobre-texto {
+    flex: 1 1 400px;
+  }
+  .sobre-texto h2 {
+    color: #FFD54F;
+    margin-bottom: 8px;
+  }
+  .sobre-texto p {
+    color: #a7b0c2;
+    margin-bottom: 12px;
+  }
+  .sobre-texto strong {
+    color: #FFD54F;
+  }
+  .img-banner {
+    flex: 1 1 300px;
+    border-radius: 10px;
+    border: 1px solid #253046;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* produtos */
+  .sec-produtos {
+    padding: 40px 0;
+  }
+  
+  /* título centralizado e dourado */
+  .sec-produtos h2 {
+    text-align: center;
+    color: #FFD54F;
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  
+  /* imagens */
+  .cards {
+    display: flex;           /* coloca as imagens lado a lado */
+    flex-wrap: nowrap;       /* impede de quebrar linha */
+    justify-content: center; /* centraliza no meio */
+    gap: 16px;               /* espaço entre as imagens */
+  }
+  
+  /* caixinha de cada produto */
+  .card {
+    background: #121828;
+    border: 1px solid #253046;
+    border-radius: 10px;
+    width: 250px;            /* tamanho fixo */
+    flex: 0 0 auto;          /* impede a imagem de encolher */
+    padding: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  
+  /* imagem menor e centralizada */
+  .card img {
+    width: 100%;
+    height: 140px;           /* altura menor ficar mais bonitinho */
+    object-fit: contain;     /* mostra a garrafa inteira */
+    background: #0b0f1a;     /* fundo escuro no quadrado */
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  
+  /* nome do produto */
+  .card h3 {
+    color: #ffffff;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+  }
+  
+  /* preço */
+  .preco {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 4px;
+    margin: 6px 0 10px;
+    font-weight: bold;
+    color: #FFD54F;
+    border-top: 1px solid #253046;
+    padding-top: 8px;
+  }
+  .preco small { font-weight: 600; }
+  .preco-num { font-size: 1.3em; }
+  
+  /* descrição */
+  .detalhes {
+    font-size: 0.9em;
+    color: #a7b0c2;
+    margin-bottom: 14px;
+  }
+  
+  /* botão de comprar - não consegui alinhar para ficar todos na mesma altura*/
+  .btn.simples {
+    display: inline-block;
+    width: 100%;
+    border: 2px solid #FFD54F;
+    color: #FFD54F;
+    padding: 8px 0;
+    border-radius: 8px;
+    font-weight: bold;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn.simples:hover {
+    background: #FFD54F;
+    color: #1a1203;
+    box-shadow: 0 6px 18px rgba(255, 213, 79, 0.3);
+  }
+  
+  
+  /* SERVIÇOS */
+  .sec-caracteristicas {
+    background: #121828;
+    padding: 30px 0;
+    border-top: 1px solid #253046;
+  }
+  .car-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .car-item {
+    flex: 1 1 260px;
+    max-width: 340px;
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 4px solid #FFD54F;
+    border-radius: 6px;
+    padding: 12px;
+  }
+  .car-item h4 {
+    color: #FFD54F;
+    margin-bottom: 4px;
+  }
+  .car-item p {
+    color: #a7b0c2;
+    font-size: 15px;
+  }
+  
+  /* CADASTRO DE E-MAIL */
+  .newsletter {
+    padding: 30px 0;
+    text-align: center;
+  }
+  .form-news {
+    display: flex;
+    gap: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid #253046;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .form-news input {
+    flex: 1;
+    border: 0;
+    padding: 10px 14px;
+    background: transparent;
+    color: #e9eef6;
+  }
+  .form-news input::placeholder {
+    color: #a7b0c2;
+  }
+  .form-news button {
+    border: 0;
+    background: #FFD54F;
+    color: #1a1203;
+    padding: 10px 18px;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 999px;
+  }
+  .form-news button:hover {
+    filter: brightness(1.06);
+  }
+  
+  /* RODAPÉ */
+  .rodape {
+    background: #121828;
+    color: #a7b0c2;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 14px;
+    border-top: 1px solid #253046;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 720px) {
+    .menu {
+      justify-content: center;
+    }
+    .sobre-grid {
+      flex-direction: column;
+    }
+    .cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    .card {
+      width: 90%;
+      max-width: 300px;
+    }
+  }
