@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bora Beber</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+
+  <!-- Faixa fininha de informações (amarelo) -->
+  <div class="py-1 text-center text-dark" style="background-color:#FFD700;">
+    <small>⏰ Seg a Sáb 11h–03h · 📞 (14) 99682-7351 · 📍 Rua Treze de Maio, 415 — Jaú/SP</small>
+  </div>
+
+  <!-- Navbar preta com título à esquerda e itens à direita -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-warning" href="#">
+        <i class="bi bi-cup-straw"></i> Bora Beber
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="nav" class="collapse navbar-collapse justify-content-end">
+ <ul class="navbar-nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="index.html">Início</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Quem Somos</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/usuarios">Lista de Cadastrados</a>
+  </li>
+<li class="nav-item">
+  <li class="nav-item"><a class="nav-link" href="/cadastro">Cadastro de Produtos</a></li>
+</li>
+  <li class="nav-item">
+    <a class="nav-link" href="/usuarios/inserir">Cadastro</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="login.html">Login</a>
+  </li>
+</ul>
+
+    </div>
+  </nav>
+
+  <!-- Imagem principal (apenas a foto, sem texto por cima) -->
+  <main>
+    <img
+      src="https://s2.glbimg.com/0er2CDw17Ig3k_gAhDj9IcyNFVuGj6BBeLN-wEOosa7Lum41QEB1sKzNF4nkNXpm/e.glbimg.com/og/ed/f/original/2013/10/08/159203890.jpg"
+      class="img-fluid w-100"
+      alt="Bebidas e bar"
+    >
+  </main>
+
+  <!-- Rodapé amarelo configurado -->
+  <footer class="text-center py-3 mt-0" style="background-color:#FFD700;">
+    <small class="text-dark fw-semibold">Desenvolvido por Jaque Gomes e Emerson Galdino — Bora Beber &copy; 2025</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<div >
+        <?=$content?>
+       
+       
+    </div>
+
+</body>
+
+
+</html>

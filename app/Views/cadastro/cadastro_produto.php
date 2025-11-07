@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bora Beber — Cadastro de Produtos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+
+  <!-- Faixa superior -->
+  <div class="py-1 text-center text-dark" style="background-color:#FFD700;">
+    <small>⏰ Seg a Sáb 11h–03h · 📞 (14) 99682-7351 · 📍 Rua Treze de Maio, 415 — Jaú/SP</small>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-warning" href="index.html">Bora Beber</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="nav" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Quem Somos</a></li>
+          <li class="nav-item"><a class="nav-link" href="listagem_usua.html">Lista de Cadastrados</a></li>
+          <li class="nav-item"><a class="nav-link" href="cadastro.html">Cadastro de Usuário</a></li>
+          <li class="nav-item"><a class="nav-link active" href="cadastro_produto.html">Cadastro de Produtos</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo principal -->
+  <main class="container py-5">
+    <div class="text-center mb-4">
+      <h1 class="fw-bold text-warning">Cadastro de Produtos</h1>
+      <p class="text-light">Preencha as informações do produto para adicionar ao sistema 🍺</p>
+    </div>
+
+    <div class="card mx-auto shadow" style="max-width: 700px;">
+      <div class="card-body bg-light text-dark">
+        <form>
+          <div class="row g-3">
+            <!-- Nome do Produto -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Nome do Produto *</label>
+              <input type="text" class="form-control" placeholder="Ex: Cerveja Heineken" required>
+            </div>
+
+            <!-- Categoria -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Categoria *</label>
+              <select class="form-select" required>
+                <option selected disabled>Selecione...</option>
+                <option>Bebidas</option>
+                <option>Comidas</option>
+                <option>Drinks</option>
+                <option>Porções</option>
+                <option>Outros</option>
+              </select>
+            </div>
+
+            <!-- Descrição -->
+            <div class="col-12">
+              <label class="form-label fw-semibold">Descrição *</label>
+              <textarea class="form-control" rows="3" placeholder="Informe detalhes do produto..." required></textarea>
+            </div>
+
+            <!-- Quantidade -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Quantidade *</label>
+              <input type="number" class="form-control" placeholder="Ex: 50" required>
+            </div>
+
+            <!-- Valor Unitário -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Valor Unitário (R$) *</label>
+              <input type="number" step="0.01" class="form-control" placeholder="Ex: 9.99" required>
+            </div>
+          </div>
+
+          <!-- Botões -->
+          <div class="text-center mt-4">
+            <a href="index.html" class="btn btn-outline-dark me-2 px-4">Voltar</a>
+            <button type="reset" class="btn btn-secondary me-2 px-4">Limpar</button>
+            <button type="submit" class="btn btn-warning text-dark fw-semibold px-4">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="text-center py-3 mt-5" style="background-color:#FFD700;">
+    <small class="text-dark fw-semibold">
+      Desenvolvido por Jaque Gomes e Emerson Galdino — Bora Beber © 2025
+    </small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
