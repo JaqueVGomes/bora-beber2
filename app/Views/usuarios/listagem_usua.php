@@ -1,3 +1,5 @@
+
+    
     <div class="container my-5">
         <h2 class="text-center mb-4">Lista de Usuários</h2>
         <div class="table-responsive">
@@ -13,33 +15,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($usuarios as $u): ?>
                     <tr>
-                        <td>1</td>
-                        <td>Jaque Gomes</td>
-                        <td>jaque.gomes@email.com</td>
-                        <td>(14) 99876-5432</td>
-                        <td>Administrador</td>
-                        <td>
+                        <td><?= $u['id_usuario'] ?></td>
+                        <td><?= $u['nome'] ?></td>
+                        <td><?= $u['email'] ?></td>
+                        <td><?= $u['celular'] ?></td>
+                        <td><?= $u['nivel_acesso'] ?></td>
+                                         
+                     
                             <button class="btn btn-sm btn-primary me-2">Editar</button>
                             <button class="btn btn-sm btn-danger">Excluir</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Emerson Galdino</td>
-                        <td>emerson.galdino@email.com</td>
-                        <td>(14) 98765-4321</td>
-                        <td>Usuário</td>
-                        <td>
-                            <button class="btn btn-sm btn-primary me-2">Editar</button>
-                            <button class="btn btn-sm btn-danger">Excluir</button>
-                        </td>
-                    </tr>
+                    <?php endforeach; ?>
+                  <!-- na aula apagamos um usuario -->
                 </tbody>
             </table>
         </div>
-       <div class="text-end mt-3">
-    <button class="btn btn-warning text-dark fw-semibold">+ Adicionar Novo</button>
+       <div class="col-md-6 text-end">
+        <a href="/usuarios/inserir" class="btn btn-primarey-custom"> Adicionar Novo</button>
+    
 </div>
     
 
