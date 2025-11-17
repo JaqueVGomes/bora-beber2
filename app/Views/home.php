@@ -19,11 +19,16 @@
         <a href="/sobre" class="btn btn-outline-dark px-4">Quem Somos</a>
         <a href="/usuarios" class="btn btn-outline-dark px-4">Lista de Usuários</a>
         <a href="/usuarios/inserir" class="btn btn-outline-dark px-4">Cadastrar Usuário</a>
-        <a href="/produtos" class="btn btn-outline-dark px-4">Lista de Produtos</a>
-        <a href="/produtos/novo" class="btn btn-outline-dark px-4">Cadastrar Produto</a>
-        <a href="/login" class="btn btn-outline-dark px-4">Login</a>
+
+        <!-- Produtos = abre cadastro_produto.php pela rota /cadastro -->
+        <a href="/cadastro" class="btn btn-outline-dark px-4">Produtos</a>
+
+        <!-- Login (a rota ainda não existe, então deixei como # por enquanto) -->
+        <a href="#" class="btn btn-outline-dark px-4">Login</a>
       </div>
     </div>
   </div>
 </div>
+
+
 
