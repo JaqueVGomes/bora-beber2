@@ -5,25 +5,59 @@ $isHome = ($path === '/' || $path === '/index.php');
 ?>
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bora Beber</title>
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- ESTILO PARA A TELA DE LOGIN -->
+  <style>
+    .login-container {
+      background-color: #fff;
+      color: #000;
+      max-width: 400px;
+      margin: 80px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-title {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .btn-custom {
+      background-color: #FFD700;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .btn-custom:hover {
+      background-color: #e6c200;
+    }
+  </style>
 </head>
+
 <body class="bg-dark text-light">
 
-  <!-- Faixa fininha de informações (amarelo) -->
+  <!-- Faixa superior de horário/contato -->
   <div class="py-1 text-center text-dark" style="background-color:#FFD700;">
     <small>⏰ Seg a Sáb 11h–03h · 📞 (14) 99682-7351 · 📍 Rua Treze de Maio, 415 — Jaú/SP</small>
   </div>
 
-  <!-- Navbar preta com título à esquerda e itens à direita -->
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
 
-      <!-- LOGO: agora vai para a rota / (home) -->
+      <!-- LOGO -->
       <a class="navbar-brand fw-bold text-warning" href="/">
         <i class="bi bi-cup-straw"></i> Bora Beber
       </a>
@@ -47,22 +81,22 @@ $isHome = ($path === '/' || $path === '/index.php');
 
           <!-- Lista de Usuários -->
           <li class="nav-item">
-            <a class="nav-link" href="/usuarios">Lista de Usuários</a>
+            <a class="nav-link" href="/lista-usuario">Lista de Usuários</a>
           </li>
 
           <!-- Cadastro de Produtos -->
           <li class="nav-item">
-            <a class="nav-link" href="/cadastro">Cadastro de Produtos</a>
+            <a class="nav-link" href="/cadastro-produto">Cadastro de Produtos</a>
           </li>
 
           <!-- Cadastro de Usuário -->
           <li class="nav-item">
-            <a class="nav-link" href="/usuarios/inserir">Cadastro</a>
+            <a class="nav-link" href="/cadastro-usuario">Cadastro</a>
           </li>
 
-          <!-- Login (por enquanto ainda sem rota PHP, então deixa só #) -->
+          <!-- Login -->
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="/login">Login</a>
           </li>
 
         </ul>
@@ -70,23 +104,22 @@ $isHome = ($path === '/' || $path === '/index.php');
     </div>
   </nav>
 
-  <!-- Imagem principal: SÓ na página inicial -->
+  <!-- Imagem somente na home -->
   <?php if ($isHome): ?>
     <main>
       <img
         src="https://s2.glbimg.com/0er2CDw17Ig3k_gAhDj9IcyNFVuGj6BBeLN-wEOosa7Lum41QEB1sKzNF4nkNXpm/e.glbimg.com/og/ed/f/original/2013/10/08/159203890.jpg"
         class="img-fluid w-100"
-        alt="Bebidas e bar"
-      >
+        alt="Bebidas e bar">
     </main>
   <?php endif; ?>
 
-  <!-- Aqui entra o conteúdo de cada página (views) -->
-  <div>
+  <!-- CONTEÚDO DAS VIEWS -->
+  <div class="container my-4">
     <?= $content ?>
   </div>
 
-  <!-- Rodapé amarelo configurado -->
+  <!-- Rodapé -->
   <footer class="text-center py-3 mt-0" style="background-color:#FFD700;">
     <small class="text-dark fw-semibold">
       Desenvolvido por Jaque Gomes e Emerson Galdino — Bora Beber &copy; 2025
@@ -95,4 +128,5 @@ $isHome = ($path === '/' || $path === '/index.php');
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

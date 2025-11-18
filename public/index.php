@@ -1,75 +1,77 @@
 <?php
 
-// Importa o autoload do Composer para carregar as classes
+// lembrar de tirar é para saber onde esta o erro
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Autoload do Composer
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\UsuarioController;
 
-// Função para renderizar as telas com layout (COM TEMPLATE)
-function render($view, $data = []) {
+// Função para renderizar as telas COM layout
+function render($view, $data = [])
+{
     extract($data);
     ob_start();
 
-    // Inclui a tela específica (apenas o miolo da página)
+    // View específica
     require __DIR__ . '/../app/Views/' . $view;
     $content = ob_get_clean();
 
-    // Inclui o layout base, que usa a variável $content
+    // Layout base
     require __DIR__ . '/../app/Views/layouts/base.php';
 }
 
-// Função para renderizar as telas SEM layout (SEM TEMPLATE)
-function render_sem_template($view, $data = []) {
+// Função para renderizar SEM layout (se precisar)
+function render_sem_template($view, $data = [])
+{
     extract($data);
-
-    // Inclui diretamente a tela específica, sem layout
     require __DIR__ . '/../app/Views/' . $view;
 }
 
-// Obtém a URL do navegador (apenas o caminho, sem query string)
+// URL atual
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// ROTAS
+// Instância do controller de usuário
+$controller = new UsuarioController();
 
-// HOME (agora usando o LAYOUT base)
-if ($url == "/" || $url == "/index.php") {
+// ----------------- ROTAS -----------------
 
-    render('home.php', [
-        'title' => 'Bem-vindo!'
-    ]);
+// HOME
+if ($url === '/' || $url === '/index' || $url === '/index.php') {
 
-// SOBRE
-} else if ($url == "/sobre") {
+    render('home.php');
 
-    render('sobre.php', [
-        'title' => 'Sobre a página!'
-    ]);
+    // SOBRE / QUEM SOMOS
+} elseif ($url === '/sobre') {
 
-// LISTAGEM DE USUÁRIOS
-} else if ($url == "/usuarios") {
+    render('sobre.php');
 
-    // Cria uma instância do Controller e chama a função de listar
-    $controller = new UsuarioController();
+    // LISTA DE USUÁRIOS
+} elseif ($url === '/lista-usuario' || $url === '/usuario') {
+
     $controller->listar();
 
-// CADASTRO DE USUÁRIO
-} else if ($url == "/usuarios/inserir") {
+    // CADASTRO DE USUÁRIO
+} elseif ($url === '/cadastro-usuario' || $url === '/usuario/inserir') {
 
-    render('usuarios/cadastro.php', [
-        'title' => 'Cadastro de Usuários'
-    ]);
+    render('usuarios/cadastro.php');
 
-// CADASTRO DE PRODUTOS (abre cadastro_produto.php)
-} else if ($url == "/cadastro") {
+    // CADASTRO DE PRODUTOS
+} elseif ($url === '/cadastro-produto' || $url === '/produto/inserir') {
 
-    render('cadastro/cadastro_produto.php', [
-        'title' => 'Cadastro de Produtos'
-    ]);
+    render('cadastro/cadastro_produto.php');
 
-// 404 - Página não encontrada
+    // LOGIN
+} elseif ($url === '/login') {
+
+    render('usuarios/login.php');
+
+    // 404
 } else {
 
-    echo "<h1>Página não encontrada (404)</h1>";
+    http_response_code(404);
+    echo "<h1 style='color:white; text-align:center; margin-top:40px;'>Página não encontrada (404)</h1>";
 }
-
-
