@@ -35,24 +35,27 @@ class Usuario
 
             $stmt = $pdo->prepare($sql);
 
-            // Bind de TODAS as variáveis
-            $stmt->bindParam(':nome', $dados['nome']);
-            $stmt->bindParam(':cpf', $dados['cpf']);
-            $stmt->bindParam(':data_nascimento', $dados['data_nascimento']);
-            $stmt->bindParam(':celular', $dados['celular']);
-            $stmt->bindParam(':rua', $dados['rua']);
-            $stmt->bindParam(':numero', $dados['numero']);
-            $stmt->bindParam(':complemento', $dados['complemento']);
-            $stmt->bindParam(':bairro', $dados['bairro']);
-            $stmt->bindParam(':cidade', $dados['cidade']);
-            $stmt->bindParam(':cep', $dados['cep']);
-            $stmt->bindParam(':estado', $dados['estado']);
-            $stmt->bindParam(':genero', $dados['genero']);
-            $stmt->bindParam(':email', $dados['email']);
-            $stmt->bindParam(':nivel_acesso', $dados['nivel_acesso']);
-            $stmt->bindParam(':senha', $senhaCriptografada);
+            //Passa as variaveis para o SQL 
+            $stmt->bindParam(':nome', $dados['nome'], PDO::PARAM_STR);        
+            $stmt->bindParam(':cpf', $dados['cpf'], PDO::PARAM_STR);
+            $stmt->bindParam(':data_nascimento', $data_nascimento);  
+            $stmt->bindParam(':celular', $dados['celular'], PDO::PARAM_STR);
+            $stmt->bindParam(':rua', $dados['rua'], PDO::PARAM_STR);
+            $stmt->bindParam(':numero', $dados['numero'], PDO::PARAM_STR);
+            $stmt->bindParam(':complemento', $dados['complemento'], PDO::PARAM_STR);
+            $stmt->bindParam(':bairro', $dados['bairro'], PDO::PARAM_STR);
+            $stmt->bindParam(':cidade', $dados['cidade'], PDO::PARAM_STR);
+            $stmt->bindParam(':cep', $dados['cep'], PDO::PARAM_STR);
+            $stmt->bindParam(':estado', $dados['estado'], PDO::PARAM_STR);
+            $stmt->bindParam(':genero', $dados['genero'], PDO::PARAM_STR);
+            $stmt->bindParam(':email', $dados['email'], PDO::PARAM_STR);
+            $stmt->bindParam(':nivel_acesso', $dados['nivel_acesso'], PDO::PARAM_STR);
+            $stmt->bindParam(':senha',  $senhaCriptografada);
 
             $stmt->execute();
+
+            // Retorna o ID de registro no BD
+            return (int) $pdo->lastInsertId();
 
             return true;
 

@@ -1,4 +1,5 @@
 <?php
+session_start(); //Inicia a sessão
 
 // lembrar de tirar é para saber onde esta o erro
 ini_set('display_errors', 1);
@@ -40,32 +41,40 @@ $controller = new UsuarioController();
 // ----------------- ROTAS -----------------
 
 // HOME
-if ($url === '/' || $url === '/index' || $url === '/index.php') {
+if ($url == '/' || $url == '/index' || $url == '/index.php') {
 
     render('home.php');
 
     // SOBRE / QUEM SOMOS
-} elseif ($url === '/sobre') {
+} else if ($url == '/sobre') {
 
     render('sobre.php');
 
     // LISTA DE USUÁRIOS
-} elseif ($url === '/lista-usuario' || $url === '/usuario') {
+} else if ($url == '/lista-usuario' || $url == '/usuarios') {
 
     $controller->listar();
 
     // CADASTRO DE USUÁRIO
-} elseif ($url === '/cadastro-usuario' || $url === '/usuario/inserir') {
+} else if ($url == '/cadastro-usuario' || $url == '/usuarios/inserir') {
 
     render('usuarios/cadastro.php');
 
-    // CADASTRO DE PRODUTOS
-} elseif ($url === '/cadastro-produto' || $url === '/produto/inserir') {
+   
+   
+}
+//verifica alem da rota o tipo de pedido
+else if ($url == "/usuarios/salvar" && $_SERVER ['REQUEST_METHOD'] == 'POST' ){
+    $controller = new UsuarioController();
+    $controller->salvar(); 
+}
+ // CADASTRO DE PRODUTOS
+else if ($url == '/cadastro-produto' || $url == '/produto/inserir') {
 
     render('cadastro/cadastro_produto.php');
 
     // LOGIN
-} elseif ($url === '/login') {
+} else if ($url == '/login') {
 
     render('usuarios/login.php');
 

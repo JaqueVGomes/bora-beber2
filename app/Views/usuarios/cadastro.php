@@ -5,6 +5,7 @@
       <h1 class="fw-bold text-warning">Cadastro de Usuário</h1>
       <p class="text-light">Preencha os campos abaixo para se cadastrar no Bora Beber</p>
     </div>
+    <form action="/usuarios/salvar" method="POST">
 
     <div class="card mx-auto shadow" style="max-width: 880px;">
       <div class="card-body bg-light text-dark">
@@ -41,8 +42,8 @@
 
             <!-- Data de Nascimento -->
             <div class="col-md-4">
-              <label class="form-label fw-semibold" for="nascimento">Data de Nascimento *</label>
-              <input type="date" class="form-control" id="nascimento" name="nascimento" required>
+              <label class="form-label fw-semibold" for="data_nascimento">Data de Nascimento *</label>
+              <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
               <div class="invalid-feedback">Informe a data de nascimento.</div>
             </div>
 
@@ -61,10 +62,10 @@
 
             <!-- Tipo de Usuário -->
             <div class="col-md-6">
-              <label class="form-label fw-semibold" for="tipo_usuario">Tipo de Usuário *</label>
-              <select class="form-select" id="tipo_usuario" name="tipo_usuario" required>
+              <label class="form-label fw-semibold" for="nivel_acesso">Nivel de Acesso *</label>
+              <select class="form-select" id="nivel_acesso" name="nivel_acesso" required>
                 <option selected disabled value="">Selecione...</option>
-                <option value="Admin">Admin</option>
+                <option value="Admin">Administrador</option>
                 <option value="Funcionario">Funcionário</option>
                 <option value="Cliente">Cliente</option>
               </select>
