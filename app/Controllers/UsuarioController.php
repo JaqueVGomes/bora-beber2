@@ -19,7 +19,7 @@ class UsuarioController
         ]);
     }
     public function salvar (){
-        //1.Limpar os dados, remove tudo que não for texto puro
+        //Limpar os dados, remove tudo que não for texto puro
         $dados =[
             'nome'=>filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS),
             'cpf'=>filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_SPECIAL_CHARS),
@@ -60,7 +60,7 @@ class UsuarioController
     }
     public function excluir($id)
     {
-        // Sanitiza o ID
+        // Sanitiza o ID - limpa 
         $id = filter_var($id, FILTER_VALIDATE_INT);
 
         if (!$id) {

@@ -19,7 +19,7 @@ class ProdutoController
         ]);
     }
     public function salvar (){
-        //1.Limpar os dados, remove tudo que não for texto puro
+        //Limpar os dados, remove tudo que não for texto puro
         $dados =[
             'nome'=>filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS),
             'categoria'=>filter_input(INPUT_POST, 'categoria', FILTER_SANITIZE_SPECIAL_CHARS),
@@ -51,7 +51,7 @@ class ProdutoController
     }
     public function excluir($id)
     {
-        // Sanitiza o ID
+        // Sanitiza o ID - limpa os dados
         $id = filter_var($id, FILTER_VALIDATE_INT);
 
         if (!$id) {
