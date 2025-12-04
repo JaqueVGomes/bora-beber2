@@ -149,13 +149,6 @@
     </div>
   </main>
 
-  <!-- Rodapé -->
-  <footer class="text-center py-3 mt-5" style="background-color:#FFD700;">
-    <small class="text-dark fw-semibold">
-      Desenvolvido por Jaque Gomes e Emerson Galdino — Bora Beber © 2025
-    </small>
-  </footer>
-
   <!-- Opcional: JS do Bootstrap (para navbar responsiva); não há JS próprio -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

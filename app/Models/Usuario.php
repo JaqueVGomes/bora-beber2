@@ -64,4 +64,15 @@ class Usuario
             return false;
         }
     }
+    public static function excluir($id)
+{
+    try {
+        $db = Database::conectar();
+        $stmt = $db->prepare("DELETE FROM usuarios WHERE id_usuario = :id");
+        return $stmt->execute([':id' => $id]);
+    } catch (PDOException $e) {
+        echo "Erro ao excluir usuário: " . $e->getMessage();
+        return false;
+    }
+}
 }

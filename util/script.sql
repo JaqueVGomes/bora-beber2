@@ -1,6 +1,6 @@
 CREATE DATABASE bora_beber
 CHARACTER SET utf8mb4
-COLLATE utef8mb4_unicode_ci;
+COLLATE utf8mb4_unicode_ci;
 
 USE bora_beber
 
@@ -21,6 +21,19 @@ CREATE TABLE usuarios (
     email VARCHAR(255) NOT NULL, -- e-mail válido
     nivel_acesso ENUM('Administrador', 'Funcionário', 'Cliente') NOT NULL, -- tipo de usuário
     senha VARCHAR(255) NOT NULL, -- senha criptografada
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- data de criação
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- data de alteração
+    deleted_at TIMESTAMP NULL DEFAULT NULL -- marcação de exclusão lógica
+);
+
+CREATE TABLE produtos (
+    id_produto BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, --identificador único
+    nome VARCHAR(255) NOT NULL, -- nome completo do produto
+    categoria ENUM('Cerveja', 'Refrigerante', 'Destilado', 'Vinho', 'Outros') NOT NULL, -- tipo de bebida
+    descricao VARCHAR(255), -- breve descritivo do produto
+    quantidade INT UNSIGNED NOT NULL, -- quantida inserida
+    valor_unitario DECIMAL(10,2) NOT NULL, -- valor do produto
+    estoque_minimo INT UNSIGNED NOT NULL, -- estoque do produto inicial
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- data de criação
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- data de alteração
     deleted_at TIMESTAMP NULL DEFAULT NULL -- marcação de exclusão lógica

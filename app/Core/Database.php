@@ -8,7 +8,7 @@ use PDOException;
 class Database {
     public static function conectar() {
         $host = '127.0.0.1';
-        $porta = '3306';
+        $porta = '3307';
         $banco = 'bora_beber';
         $usuario = 'root';
         $senha = '';

@@ -84,6 +84,11 @@ $isHome = ($path === '/' || $path === '/index.php');
             <a class="nav-link" href="/lista-usuario">Lista de Usuários</a>
           </li>
 
+          <!-- Lista de Produtos -->
+          <li class="nav-item">
+            <a class="nav-link" href="/lista-produtos">Lista de Produtos</a>
+          </li>
+
           <!-- Cadastro de Produtos -->
           <li class="nav-item">
             <a class="nav-link" href="/cadastro-produto">Cadastro de Produtos</a>

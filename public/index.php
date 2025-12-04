@@ -10,6 +10,7 @@ error_reporting(E_ALL);
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\UsuarioController;
+use App\Controllers\ProdutoController;
 
 // Função para renderizar as telas COM layout
 function render($view, $data = [])
@@ -38,6 +39,8 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 // Instância do controller de usuário
 $controller = new UsuarioController();
 
+$controllerp = new ProdutoController();
+
 // ----------------- ROTAS -----------------
 
 // HOME
@@ -59,8 +62,6 @@ if ($url == '/' || $url == '/index' || $url == '/index.php') {
 } else if ($url == '/cadastro-usuario' || $url == '/usuarios/inserir') {
 
     render('usuarios/cadastro.php');
-
-   
    
 }
 //verifica alem da rota o tipo de pedido
@@ -68,13 +69,37 @@ else if ($url == "/usuarios/salvar" && $_SERVER ['REQUEST_METHOD'] == 'POST' ){
     $controller = new UsuarioController();
     $controller->salvar(); 
 }
- // CADASTRO DE PRODUTOS
-else if ($url == '/cadastro-produto' || $url == '/produto/inserir') {
+// EXCLUIR USUARIOS
+else if (preg_match('#^/usuarios/excluir/(\d+)$#', $url, $matches)) {
+    $id = (int)$matches[1];
+    $controller->excluir($id);
 
-    render('cadastro/cadastro_produto.php');
+}
+
+// CADASTRO DE PRODUTOS
+else if ($url == '/cadastro-produto' || $url == '/produtos/inserir') {
+
+    render('produtos/cadastro_produto.php');
+}
+// LISTA DE PRODUTOS
+else if ($url == '/lista-produtos' || $url == '/produtos') {
+
+    $controllerp->listar();
+}
+//verifica alem da rota o tipo de pedido
+else if ($url == "/produtos/salvar" && $_SERVER ['REQUEST_METHOD'] == 'POST' ){
+    $controllerp = new ProdutoController();
+    $controllerp->salvar(); 
+
+}
+// EXCLUIR PRODUTOS
+else if (preg_match('#^/produtos/excluir/(\d+)$#', $url, $matches)) {
+    $id = (int)$matches[1];
+    $controllerp->excluir($id);
+}
 
     // LOGIN
-} else if ($url == '/login') {
+else if ($url == '/login') {
 
     render('usuarios/login.php');
 
@@ -84,3 +109,4 @@ else if ($url == '/cadastro-produto' || $url == '/produto/inserir') {
     http_response_code(404);
     echo "<h1 style='color:white; text-align:center; margin-top:40px;'>Página não encontrada (404)</h1>";
 }
+

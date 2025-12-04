@@ -58,4 +58,27 @@ class UsuarioController
             header('Location: /usuario/inserir');
         }
     }
+    public function excluir($id)
+    {
+        // Sanitiza o ID
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+
+        if (!$id) {
+            $_SESSION['erros'][] = 'ID inválido para exclusão.';
+            header('Location: /usuarios');
+            exit;
+        }
+
+        // Chama o Model para excluir
+        $removido = Usuario::excluir($id);
+
+        if ($removido) {
+            $_SESSION['sucesso'] = 'Usuário excluído com sucesso.';
+        } else {
+            $_SESSION['erros'][] = 'Erro ao excluir o usuário.';
+        }
+
+        header('Location: /usuarios');
+        exit;
+    }
 }

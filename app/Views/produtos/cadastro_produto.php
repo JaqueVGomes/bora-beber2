@@ -10,7 +10,7 @@
   <div class="card mx-auto shadow bg-light text-dark" style="max-width: 900px;">
     <div class="card-body">
 
-      <form action="#" method="post">
+      <form action="produtos/salvar" method="POST">
         <div class="row g-3">
 
           <!-- Nome do produto -->
